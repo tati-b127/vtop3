@@ -9,6 +9,14 @@ const swiperCases = new Swiper(".cases__swiper", {
     prevEl: ".cases .swiper-button-prev",
   },
 });
+const swiperHero = new Swiper(".hero__swiper", {
+  speed: 1200,
+  loop: true,
+  slidesPerView: 1,
+  loop: true,
+  effect: "slide",
+  // autoplay: true,
+});
 const swiperClients = new Swiper(".clients__swiper", {
   direction: "horizontal",
   speed: 600,
@@ -40,7 +48,7 @@ const swiperClients = new Swiper(".clients__swiper", {
 });
 const swiperReviews = new Swiper(".reviews__swiper", {
   direction: "horizontal",
-  speed: 600,
+  // speed: 600,
   loop: true,
   slidesPerView: 3,
   effect: "slide",
@@ -49,17 +57,17 @@ const swiperReviews = new Swiper(".reviews__swiper", {
   breakpoints: {
     320: {
       slidesPerView: 1,
-      spaceBetween: 32,
+      // spaceBetween: 32,
       slidesPerGroup: 1,
     },
     780: {
       slidesPerView: 2,
-      spaceBetween: 32,
-      slidesPerGroup: 2,
+      // spaceBetween: 32,
+      // slidesPerGroup: 2,
     },
     1020: {
       slidesPerView: 3,
-      spaceBetween: 32,
+      // spaceBetween: 32,
     },
   },
 
