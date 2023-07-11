@@ -6,21 +6,16 @@ const items = document.querySelectorAll(".burger__item");
 const dropdowns = burgerList.querySelectorAll(".header__dropdown-menu");
 const burgerBack = document.querySelectorAll(".burger__btn-back");
 const burgerClose = document.querySelectorAll(".burger__btn-close");
-console.log(burgerClose);
 const burgerItemLink = document.querySelectorAll(".burger__link");
 burgerItemLink.forEach((e) => {
   e.addEventListener("click", () => {
-    console.log(e);
     const list = e.nextSibling;
     if (list !== null) {
       list.style.display = "block";
-      console.log(items);
       items.forEach((item) => {
         item.classList.add("flip");
       });
       list.classList.add("visible");
-      // console.log(burgerList.childNodes);
-      // console.log(list.nodeName);
     }
   });
 });
@@ -52,9 +47,7 @@ burgerBack.forEach((e) => {
 });
 burgerClose.forEach((e) => {
   e.addEventListener("click", (e) => {
-    console.log(e);
     if (burgerList.classList.contains("visible")) {
-      console.log(dropdowns);
       dropdowns.forEach((e) => {
         if (e.classList.contains("visible")) {
           e.classList.remove("visible");
@@ -91,3 +84,17 @@ tabTriggerBtns.forEach(function (tabTriggerBtn, index) {
 // accordion
 
 new Accordion(".accordion");
+
+// show contacts
+const contactPhone = document.querySelector(".footer__phone");
+const contactMail = document.querySelector(".footer__mail");
+contactPhone.addEventListener("click", () => {
+  if (contactPhone.classList.contains("footer__phone_hover")) {
+    contactPhone.classList.remove("footer__phone_hover");
+  }
+});
+contactMail.addEventListener("click", () => {
+  if (contactMail.classList.contains("footer__mail_hover")) {
+    contactMail.classList.remove("footer__mail_hover");
+  }
+});
