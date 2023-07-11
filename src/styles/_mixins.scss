@@ -1,0 +1,75 @@
+@mixin ghost {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+@mixin hidden {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+}
+@mixin visible {
+  pointer-events: visible;
+  visibility: visible;
+  clip: initial;
+  overflow: visible;
+  margin: initial;
+  opacity: 1;
+}
+@mixin btnReset {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  appearance: none;
+  display: inline-block;
+  cursor: pointer;
+}
+@mixin listReset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@mixin linkReset {
+  text-decoration: none;
+  &:focus-visible {
+    border: none;
+    outline: none;
+  }
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin title {
+  font-size: 70px;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  color: $color-F3BC28;
+}
