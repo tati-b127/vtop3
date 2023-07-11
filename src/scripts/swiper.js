@@ -13,9 +13,10 @@ const swiperHero = new Swiper(".hero__swiper", {
   speed: 1200,
   loop: true,
   slidesPerView: 1,
+  spaceBetween: 10,
   loop: true,
   effect: "slide",
-  // autoplay: true,
+  autoplay: true,
 });
 const swiperClients = new Swiper(".clients__swiper", {
   direction: "horizontal",
