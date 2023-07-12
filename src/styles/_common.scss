@@ -248,6 +248,9 @@ img {
     }
   }
   &__dropdown-menu-flex {
+    .header__dropdown-menu-include {
+      margin-right: 20px;
+    }
     .header__link_last-trigger:hover ~ .header__dropdown-menu-include-last {
       display: block;
       position: absolute;
@@ -341,7 +344,17 @@ img {
         background-image: url("./images/svg/sprite/icon-burger-hover.svg");
       }
     }
-
+    .header__dropdown-menu {
+      background-image: url(./images/svg/border-burger.svg);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    }
+    .burger__list-last {
+      background-image: url(./images/svg/border-burger.svg);
+      background-repeat: no-repeat;
+      background-position: bottom left;
+  
+    }
     &__list {
       @include listReset;
       min-width: 320px;
@@ -375,19 +388,27 @@ img {
       color: $color-FFFFFF;
       background-color: $color-4D3F75;
       position: absolute;
-      top: 0;
-      left: 0;
+      // top: 0;
+      // left: 0;
       display: none;
-    }
-    &__link-last-trigger:hover ~ .burger__list-last {
+      z-index: 600;
+      top: -20px;
       position: absolute;
-      display: block;
-      padding: 20px 20px 20px 40px;
-      border-radius: 0 20px 20px 20px;
+      padding: 20px;
+      border-radius: 20px 20px 20px 20px;
       max-width: 250px;
       left: calc(100% - 30px);
-      top: -20px;
       background-color: $color-4D3F75;
+      &:hover {
+        display: block;
+      }
+    }
+    &__drop-item:hover ~ .burger__list-last {
+      display: block;
+    }
+    
+    &__link-last-trigger:hover ~ .burger__list-last {
+      display: block;
     }
     &__item {
       position: relative;
@@ -2121,11 +2142,16 @@ img {
 }
 .flip {
   font-size: 0;
+  pointer-events: none;
+  user-select: none;
   a {
     pointer-events: none;
     color: transparent;
     text-shadow: none;
     user-select: none;
+    &::after {
+      display: none;
+    }
   }
 }
 .header__dropdown-menu.visible {

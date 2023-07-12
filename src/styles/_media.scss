@@ -492,17 +492,41 @@
     .burger {
         &__list {
             width: 90%;
+    
         }
         &__title-menu {
             display: flex;
         }
         .header__dropdown-menu {
+            position: fixed;
             left: 50px;
-            padding: 0;
-            top: 100px;
+            padding: 20px;
+            top: 60px;
+            z-index: 200;
+            max-width: 80%;
     
         }
+        .header__link_arrow-right::after {
+            display: block;
+        }
+        &__item-last {
+            font-size: 16px;
+            padding: 4px;
+        }
+        .burger__list-last {
+            position: fixed;
+            left: 50px;
+            padding: 30px 20px;
+            top: 79px;
+            z-index: 500;
+            max-width: none;
+
+        }
+        &__link-last-trigger:hover ~ .burger__list-last {
+        display: none;          
+        }
     }
+  
   }
   .burger {
     &__item {
