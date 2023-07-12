@@ -1,5 +1,5 @@
 // Burger menu
-
+console.log(window.innerWidth);
 const burgerBtn = document.querySelector(".burger__btn");
 const burgerList = document.querySelector(".burger__list");
 const items = document.querySelectorAll(".burger__item");
@@ -7,20 +7,43 @@ const dropdowns = burgerList.querySelectorAll(".header__dropdown-menu");
 const burgerBack = document.querySelectorAll(".burger__btn-back");
 const burgerClose = document.querySelectorAll(".burger__btn-close");
 const burgerItemLink = document.querySelectorAll(".burger__link");
-burgerItemLink.forEach((e) => {
-  e.addEventListener("click", () => {
-    const list = e.nextSibling;
-    if (list !== null) {
-      list.style.display = "block";
-      items.forEach((item) => {
-        item.classList.add("flip");
-      });
-      list.classList.add("visible");
-    }
+const burgerLastTrigger = document.querySelectorAll(
+  ".burger__link-last-trigger"
+);
+console.log(burgerLastTrigger);
+if (window.innerWidth < 780) {
+  console.log(window.innerWidth);
+  setFlip();
+}
+function setFlip() {
+  burgerItemLink.forEach((e) => {
+    e.addEventListener("click", () => {
+      const list = e.nextSibling;
+      if (list !== null) {
+        list.style.display = "block";
+        items.forEach((item) => {
+          item.classList.add("flip");
+        });
+        list.classList.add("visible");
+      }
+    });
   });
-});
+  burgerLastTrigger.forEach((e) => {
+    e.addEventListener("click", () => {
+      const lastList = e.nextSibling;
+      console.log(lastList);
+      if (lastList !== null) {
+        lastList.style.display = "block";
+        items.forEach((item) => {
+          item.classList.add("flip");
+        });
+        lastList.classList.add("visible");
+      }
+    });
+  });
+}
 
-burgerList.classList.add("hidden");
+// burgerList.classList.add("hidden");
 burgerBtn.addEventListener("click", () => {
   if (burgerList.classList.contains("hidden")) {
     burgerList.classList.remove("hidden");
@@ -60,6 +83,9 @@ burgerClose.forEach((e) => {
 
       burgerList.classList.add("hidden");
       burgerList.classList.remove("visible");
+      // if (window.innerWidth < 780) {
+      document.body.style.overflow = "scroll";
+      // }
     }
   });
 });
