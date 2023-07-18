@@ -79,22 +79,50 @@
     }
 
     .cases {
+
+        &__tr>.cases__td:nth-child(1) {
+            padding-left: 40px;
+        }
+
+        &__tr:not(:first-child)>.cases__td:last-child {
+            display: flex;
+            justify-content: space-around;
+            padding-left: 40px;
+            background-image: url("./images/svg/top.svg");
+            background-repeat: no-repeat;
+            background-position: 40px center;
+        }
+
         .swiper-slide {
-            grid-template-columns: 1fr;
+            img {
+                // margin-top: 70px;
+            }
         }
 
-        &__block-img {
-            display: none;
+        &__list_3 {
+            flex-direction: column;
+
+            .problem {
+                width: 100%;
+            }
+
+            .problem__title {
+                min-width: 160px;
+            }
         }
 
-        &__btns-block {
-            width: 100%;
-            left: 0;
-        }
+        // &__block-img {
+        //     // display: none;
+        // }
 
-        &__block {
-            align-items: center;
-        }
+        // &__btns-block {
+        //     width: 100%;
+        //     left: 0;
+        // }
+
+        // &__block {
+        //     align-items: center;
+        // }
     }
 }
 
@@ -133,13 +161,18 @@
 
         &__container {
             padding-top: 50px;
-            padding-bottom: 50px;
+            padding-bottom: 80px;
         }
     }
 
     .hero {
         &__title {
             font-size: 50px;
+        }
+
+        &__swiper {
+            margin-top: 90px;
+            background-size: 380px;
         }
     }
 
@@ -161,6 +194,10 @@
         &__container {
             padding-top: 50px;
             padding-bottom: 50px;
+        }
+
+        &__tr {
+            grid-template-columns: 30% 30% 40%;
         }
     }
 
@@ -222,15 +259,15 @@
         }
 
         &__post-title {
-            font-size: 14px;
+            font-size: 18px;
         }
 
         &__name {
-            font-size: 14px;
+            font-size: 18px;
         }
 
         &__sertificate {
-            font-size: 12px;
+            font-size: 16px;
         }
     }
 
@@ -253,11 +290,15 @@
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
     .hero {
-        &__picture {
-            min-width: 45%;
+        &__swiper {
+            background-size: 340px;
         }
+
+        // &__picture {
+        //     min-width: 45%;
+        // }
 
         &__item {
             font-size: 8px;
@@ -272,12 +313,12 @@
     .prices {
         th {
             font-size: 16px;
-            padding: 10px 14px;
+            // padding: 10px 14px;
         }
 
         td {
             font-size: 12px;
-            padding: 10px 14px;
+            // padding: 10px 14px;
         }
 
         .prices__tr:first-child>td:not(:first-child) {
@@ -290,8 +331,115 @@
             height: 150px;
         }
 
+        &__list {
+            grid-gap: 16px;
+        }
+
         &__img {
             min-width: 100px;
+        }
+
+        &__link {
+            width: 78px;
+            height: 78px;
+        }
+    }
+
+    .cases {
+        .swiper-slide {
+            grid-template-columns: 1fr;
+        }
+
+        &__content.is-open {
+            grid-template-columns: 33% auto auto auto;
+            grid-gap: 0 16px;
+        }
+
+        &__caption {
+            width: 100%;
+            text-align: center;
+        }
+
+        &__block {
+            align-items: center;
+        }
+
+        &__block-img {
+            display: none;
+        }
+
+        &__img-ex {
+            width: 100%;
+            max-width: 280px;
+            grid-column: 1/span 1;
+            grid-row: 1/span 2;
+            display: block;
+        }
+
+        &__tr {
+            grid-template-columns: 40% 20% 40%;
+        }
+
+        &__list {
+            grid-column: 2/span 3;
+
+            &_1 {
+                grid-column: 3/span 2;
+            }
+        }
+
+        &__chart {
+            grid-column: 2/span 3;
+            min-height: 160px;
+        }
+
+        &__num {
+            font-size: 22px;
+        }
+
+        &__img {
+            width: 180px;
+            grid-column: 2/span 1;
+            margin-bottom: 0;
+        }
+
+        &__list_2 {
+            .cases__img-block {
+                margin-right: 6px;
+            }
+
+        }
+
+        &__cash {
+            grid-column: 2/span 3;
+
+            .cases__item {
+                padding: 6px 10px;
+
+                &:first-child {
+                    margin-right: 35px;
+                }
+            }
+        }
+
+        &__table {
+            grid-column: 2/span 3;
+        }
+
+        &__td {
+            padding: 10px 20px;
+        }
+
+        &__tr>.cases__td:nth-child(1) {
+            padding-left: 20px;
+        }
+
+        &__tr:not(:first-child)>.cases__td:last-child {
+            background-position: 20px center;
+        }
+
+        &__sub {
+            font-size: 16px;
         }
     }
 }
@@ -333,6 +481,11 @@
                 margin: 0;
             }
         }
+
+        &__phone-hover,
+        &__mail-hover {
+            display: none;
+        }
     }
 
     .btn {
@@ -344,6 +497,13 @@
         &__title {
             font-size: 36px;
             margin-bottom: 12px;
+            max-width: 440px;
+        }
+
+        &__swiper {
+            margin-top: 70px;
+            background-size: 240px;
+            background-position: right 0 bottom 70px;
         }
 
         &__block {
@@ -369,6 +529,7 @@
         }
 
         &__subtitle {
+            max-width: 420px;
             font-size: 20px;
             margin-bottom: 3px;
 
@@ -388,12 +549,15 @@
 
     .clients {
         &__container {
-            padding-left: 20px;
-            padding-right: 20px;
+            padding: 50px 22px;
         }
 
         &__wrapper {
             display: none;
+        }
+
+        &__title {
+            margin-bottom: 24px;
         }
 
         &__sw {
@@ -404,6 +568,10 @@
     .partners {
         &__title {
             margin-bottom: 32px;
+        }
+
+        &__img {
+            height: 140px;
         }
 
         &__img:first-child {
@@ -449,9 +617,28 @@
             padding: 16px 20px;
         }
 
+        &__btns-block {
+            width: calc(100% + 28px);
+            left: -16px;
+        }
+
         &__pic {
             min-width: 22px;
             height: 22px;
+        }
+
+        &__list_2 {
+            margin-bottom: 10px;
+
+            .cases__img-block {
+                min-width: 30px;
+                height: 30px;
+
+                .cases__pic {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
         }
 
         &__num {
@@ -466,6 +653,10 @@
             .cases__desc {
                 font-size: 12px;
             }
+        }
+
+        &__value {
+            font-size: 16px;
         }
 
         &__sub {
@@ -499,8 +690,15 @@
         }
 
         .cases__tr:not(:first-child)>.cases__td:last-child {
-            padding-left: 20px;
+            padding-left: 30px;
             background-position: 20px center;
+        }
+
+        &__list_2 {
+
+            .cases__img-block {
+                display: none;
+            }
         }
     }
 
@@ -515,13 +713,36 @@
             font-weight: 400;
         }
 
+        .prices__table {
+            width: 1200px;
+        }
+
         &__block-title {
             padding: 0 10px;
             margin-bottom: 18px;
         }
 
-        &__btn {
-            padding: 18px 22px;
+        // &__btn {
+        //     padding: 18px 22px;
+        // }
+        .prices__tr:first-child>td:not(:first-child) {
+            font-size: 12px;
+        }
+    }
+
+    .questions {
+        &__container {
+            padding-top: 50px;
+            padding-bottom: 30px;
+        }
+
+        &__title {
+            margin-bottom: 12px;
+        }
+
+        .accordion .ac .ac-panel .ac-text {
+            font-size: 18px;
+            padding: 6px 26px 6px 65px;
         }
     }
 
@@ -536,6 +757,7 @@
 
     .callback {
         &__title {
+            font-size: 28px;
             margin-bottom: 18px;
         }
 
@@ -561,15 +783,37 @@
             width: 14px;
             height: 14px;
         }
+
+        &__block_1 {
+            padding: 70px 4px 40px;
+        }
+
+        &__block_2 {
+            padding-bottom: 40px;
+        }
+
+        &__input {
+            padding: 0px 8px;
+            margin-bottom: 4px;
+
+            &_text {
+                margin-bottom: 12px;
+            }
+        }
     }
 
     .team {
+        &__container {
+            padding-bottom: 20px;
+        }
+
         &__link {
-            width: 20px;
-            height: 20px;
+            width: 60px;
+            height: 60px;
         }
 
         &__post-title {
+            font-size: 14px;
             min-height: 25px;
         }
 
@@ -577,7 +821,17 @@
             padding: 12px 14px;
         }
 
+        &__title {
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        &__sertificate {
+            font-size: 12px;
+        }
+
         &__name {
+            font-size: 14px;
             padding-left: 14px;
         }
 
@@ -588,7 +842,17 @@
 
     .footer {
         &__container {
+            grid-template-columns: 32% 30% 30%;
             padding: 70px 40px;
+            padding-bottom: 50px;
+        }
+
+        &__list-pay {
+            grid-template-columns: repeat(2, 80px);
+        }
+
+        &__title {
+            font-size: 16px;
         }
     }
 }
@@ -668,19 +932,33 @@
 
     .hero {
         &__container {
-            .swiper-slide {
-                flex-direction: column-reverse;
-            }
+            padding: 0;
+            flex-direction: column-reverse;
+        }
+
+        &__swiper {
+            margin-top: 20px;
+            background-position: center;
         }
 
         &__picture {
             width: 316px;
             height: 290px;
-            margin: 20px auto 0;
-            background-image: url("./images/hero-tablet.webp");
+            // margin: 20px auto 0;
+            padding-left: 150px;
+            // background-image: url("./images/hero-tablet.webp");
+            background-position: bottom center;
+
+        }
+
+        &__name {
+            position: absolute;
+            left: 12%;
         }
 
         &__block {
+            padding-left: 12px;
+            padding-right: 12px;
             background-color: #28062c;
         }
 
@@ -722,12 +1000,23 @@
 
     .offers {
         &__list {
-            flex-direction: column;
+            justify-content: space-around;
         }
 
         &__item {
-            max-width: 100%;
+            max-width: 45%;
+            margin-right: 0;
             min-height: 260px;
+
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+
+            &:nth-child(1),
+            &:nth-child(3) {
+                margin-right: 20px;
+                ;
+            }
         }
     }
 
@@ -760,7 +1049,7 @@
         }
 
         &__list_2 {
-            flex-wrap: wrap;
+            // flex-wrap: wrap;
             justify-content: center;
             // flex-direction: column;
         }
@@ -771,6 +1060,11 @@
             .problem {
                 width: 100%;
             }
+
+            .problem__title {
+                padding: 6px;
+            }
+
         }
 
         &__link {
@@ -785,12 +1079,29 @@
         &__tr>.cases__td:nth-child(1) {
             padding-left: 10px;
         }
+
+        &__img {
+            width: 130px;
+        }
+
+        &__list_2 {
+            .cases__item {
+                padding: 2px 4px;
+            }
+        }
+    }
+
+    .prices {
+        .prices__table {
+            width: 800px;
+        }
+
+        .prices__tfoot .prices__tr:last-child td {
+            padding: 9px 0;
+        }
     }
 
     .reviews {
-        &__btns-block {
-            top: 130px;
-        }
 
         &__subtitle {
             font-size: 22px;
@@ -801,6 +1112,8 @@
 
             span {
                 font-size: 20px;
+                color: $color-F6A21E;
+                font-weight: 600;
             }
         }
     }
@@ -895,6 +1208,10 @@
             text-align: center;
         }
 
+        &__mail_hover::after {
+            padding-left: 15px;
+        }
+
         &__block {
             display: flex;
             flex-direction: column;
@@ -908,7 +1225,76 @@
     }
 }
 
+@media (max-width: 620px) {
+    .cases {
+        &__sub {
+            font-size: 14px;
+        }
+
+        &__img-ex {
+            display: none;
+        }
+
+        &__img {
+            grid-column: 1/span 1;
+        }
+
+        &__list {
+            &_1 {
+                grid-column: 2/span 3;
+            }
+
+            &_2 {
+                grid-column: 1/span 4;
+            }
+
+            &_3 {
+                grid-column: 1/span 4;
+            }
+        }
+
+        &__cash {
+            grid-column: 1/span 4;
+        }
+
+        &__chart {
+            grid-column: 1/span 4;
+        }
+
+        &__table {
+            grid-column: 1/span 4;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .offers {
+        &__list {
+            flex-direction: column;
+        }
+
+        &__item {
+            max-width: 100%;
+        }
+    }
+
+    .reviews {
+        &__btns-block {
+            top: 130px;
+        }
+
+    }
+}
+
 @media (max-width: 430px) {
+    .custom-select {
+        display: block;
+    }
+
+    .cases__tabs_desktop {
+        display: none;
+    }
+
     .header {
         &__container {
             padding-left: 14px;
@@ -999,9 +1385,23 @@
             margin: 10px 0 0;
         }
 
+        &__swiper {
+            background-image: url('./images/hero-bg-phone.webp');
+            background-size: auto;
+            margin: 0;
+        }
+
         &__list {
             width: 100%;
             flex-direction: column;
+        }
+
+        &__name {
+            padding: 10px;
+
+            p {
+                font-size: 10px;
+            }
         }
 
         &__item {
@@ -1032,6 +1432,12 @@
         &__img {
             height: 130px;
             width: auto;
+        }
+
+        &__link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 
@@ -1065,16 +1471,29 @@
             display: none;
         }
 
-        &__list {
-            grid-column: 1 / span 2;
+        &__list_1 {
+            grid-column: 1 / span 4;
         }
 
         &__list_2 {
-            grid-column: 1 / span 3;
+            flex-direction: column;
         }
 
         &__list_3 {
-            grid-column: 1 / span 3;
+
+            // grid-column: 1 / span 3;
+            .problem__title {
+                min-width: 110px;
+            }
+        }
+
+        .cases__tr:not(:first-child)>.cases__td:last-child {
+            padding-left: 20px;
+            background-position: 8px center;
+        }
+
+        .cases__tr>.cases__td:nth-child(1) {
+            padding-left: 10px;
         }
 
         &__tabs {
@@ -1108,8 +1527,10 @@
         }
 
         &__btns-block {
+            width: calc(100% + 12px);
+            left: -6px;
             top: auto;
-            bottom: 40px;
+            bottom: 46px;
         }
 
         &__cash {
@@ -1123,7 +1544,7 @@
         }
 
         &__list_1 {
-            grid-column: 1/span 3;
+            // grid-column: 1/span 3;
             margin-bottom: 5px;
 
             .cases__item {
@@ -1244,7 +1665,7 @@
         }
 
         &__descr {
-            font-size: 12px;
+            font-size: 14px;
         }
     }
 
@@ -1279,13 +1700,14 @@
         }
 
         &__link {
-            width: 30px;
-            height: 30px;
+            width: 50px;
+            height: 50px;
         }
     }
 
     .clients {
         &__container {
+            padding-top: 50px;
             padding-bottom: 30px;
         }
 
@@ -1296,7 +1718,7 @@
 
     .clients__sw .clients__btns-block {
         position: absolute;
-        top: 0;
+        top: 10%;
         left: -13px;
         width: 110%;
         height: 48px;
@@ -1333,6 +1755,10 @@
             font-size: 0;
         }
 
+        &__label {
+            font-size: 10px;
+        }
+
         &__input {
             padding: 2px 6px;
 
@@ -1340,14 +1766,27 @@
                 border-radius: 10px;
             }
         }
+
         &__modal {
             padding: 30px;
+
+            .callback__block_2 {
+                padding: 0;
+            }
         }
     }
 
     .footer {
         &__list-pay {
             grid-template-columns: repeat(2, 80px);
+        }
+
+        &__phone_hover::after {
+            padding-left: 0;
+        }
+
+        &__mail_hover::after {
+            padding-left: 15px;
         }
     }
 }

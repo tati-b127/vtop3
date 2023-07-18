@@ -46,11 +46,17 @@ class ItcModal {
     }
     this.#elem.classList.add("itc-modal-show");
     this.#elem.dispatchEvent(this.#eventShowModal);
+    // const scrollY = document.documentElement.scrollTop;
+    // console.log(scrollY);
+    // document.body.style.position = "fixed";
+    // document.body.style.top = `-${window.scrollY}px`;
   }
 
   hide() {
     this.#elem.classList.remove("itc-modal-show");
     this.#elem.dispatchEvent(this.#eventHideModal);
+    document.body.style.position = "";
+    document.body.style.top = "";
   }
 
   dispose() {
@@ -69,13 +75,8 @@ class ItcModal {
 }
 
 const modal = new ItcModal({
-  //   title: "Заголовок",
   content:
     '<div class="callback callback__modal"><div class="callback__block callback__block_2"><h3 class="callback__subtitle">Будем рады помочь</h3><form action="" class="callback__form"><label class="callback__label" for="name">Ваше имя</label><input class="callback__input" type="text" name="name" id="name"><label class="callback__label" for="phone">Телефон</label><input class="callback__input" type="tel" name="phone" id="phone"><label class="callback__label" for="message">Комментарий</label><textarea class="callback__input callback__input_text" name="message" id="message" rows="3"></textarea><label class="callback__label callback__label_check" for="agree"><input class="callback__checkbox" type="checkbox" name="agree" id="agree"><span class="callback__span"></span>Нажимая кнопку отправить заявку, даю согласие на обработку персональных данных*</label><button class="callback__btn btn btn-ok">Отправить заявку</button></form></div></div>',
-  //   footerButtons: [
-  //     { class: "btn btn-close", text: "Закрыть", action: "close" },
-  //     { class: "btn btn-ok", text: "ОК", action: "ok" },
-  //   ],
 });
 const modalSuccess = new ItcModal({
   content:
@@ -85,12 +86,14 @@ const modalSuccess = new ItcModal({
 const btnShowModal = document.querySelectorAll(".btn-show-modal");
 const btnOk = document.querySelectorAll(".btn-ok");
 btnShowModal.forEach((btn) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
     modal.show();
   });
 });
 btnOk.forEach((btn) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
     modal.hide();
     modalSuccess.show();
   });
