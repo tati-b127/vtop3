@@ -15,7 +15,35 @@ const swiperHero = new Swiper(".hero__swiper", {
   slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
-  effect: "slide",
+  effect: "fade",
+  fadeEffect: {
+    crossFade: true,
+  },
+  // effect: "creative",
+  // creativeEffect: {
+  //   prev: {
+  //     // will set `translateZ(-400px)` on previous slides
+  //     translate: [0, 0, "-100%"],
+  //     opacity: 0,
+  //   },
+  //   next: {
+  //     // will set `translateX(100%)` on next slides
+  //     translate: [0, 0, 0],
+  //     opacity: 0.3,
+  //   },
+  // },
+  // // Array with translate X, Y and Z values
+  // translate: (string | number)[];
+  // // Array with rotate X, Y and Z values (in deg)
+  // rotate?: number[];
+  // // Slide opacity
+  // opacity?: number;
+  // // Slide scale
+  // scale?: number;
+  // // Enables slide shadow
+  // shadow?: boolean;
+  // // Transform origin, e.g. `left bottom`
+  // origin?: string;
   autoplay: true,
 });
 const swiperClients = new Swiper(".clients__swiper", {

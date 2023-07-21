@@ -42,10 +42,15 @@ img {
   font-size: 18px;
   font-weight: 400;
   color: $color-000000;
-  border: 1px solid transparent;
+  border: none;
   border-radius: 50px;
   padding: 24px 40px;
   background: linear-gradient(#f1ca2d 0%, #f6a21e 100%);
+  transition: all 0.15s ease-in-out;
+  &:hover {
+    background: linear-gradient(180deg, #F1CA2D -83.33%, #F7A21E 48.89%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .header {
@@ -204,7 +209,7 @@ img {
   }
 
   &__item-trigger {
-    padding: 14px 6px;
+    padding: 8px 6px;
   }
 
   &__item-trigger:hover>.header__dropdown-menu {
@@ -286,10 +291,12 @@ img {
     font-weight: 400;
     padding: 4px;
     border-bottom: 1px solid transparent;
-    transition: border 0.2s ease-in;
+    transition: border 0.2s ease-in, -webkit-text-stroke 0.2s ease-in;
+    font-feature-settings: 'pnum' on, 'lnum' on;
 
     &:hover {
-      border-bottom: 1px solid $color-9A9A9A;
+      -webkit-text-stroke: 0.3px white;
+      // border-bottom: 1px solid $color-9A9A9A;
     }
 
     &_active {
@@ -302,25 +309,37 @@ img {
     margin-right: 25px;
     transition: color 0.2s ease-in-out;
     border: none;
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 12px;
+    letter-spacing: 1.2px;
+
     // border-bottom: 1px solid transparent;
 
     &:hover {
       border: none;
-      color: $color-F3BC28;
+      // color: $color-F3BC28;
+      -webkit-text-stroke: none;
     }
   }
 
   &__mail {
     position: relative;
-    margin-right: 50px;
     transition: color 0.2s ease-in-out;
     border: none;
+    -webkit-text-stroke: none;
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 35px;
+
 
 
 
     &:hover {
       border: none;
-      color: $color-F3BC28;
+      // color: $color-F3BC28;
+      -webkit-text-stroke: none;
+
     }
   }
 
@@ -329,7 +348,7 @@ img {
     align-items: center;
     content: "";
     position: absolute;
-    width: 100%;
+    width: 90%;
     height: 100%;
     left: 30px;
     right: 0;
@@ -527,9 +546,9 @@ img {
   &__title {
     font-size: 100px;
     font-weight: 700;
-    line-height: 117%;
+    line-height: 122%;
     color: $color-FFFFFF;
-    margin-bottom: 30px;
+    margin-bottom: 22px;
   }
 
   &__subtitle {
@@ -549,10 +568,16 @@ img {
     display: flex;
     align-items: flex-end;
     min-width: 100%;
-    background-image: url("./images/hero-desktop.webp");
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: contain;
+    &_1 {
+      background-image: url("./images/hero-desktop.webp");
+    }
+    &_2 {
+      background-image: url("./images/hero-desktop.webp");
+      filter: grayscale(100);
+    }
     // margin-top: 100px;
   }
 
@@ -617,7 +642,7 @@ img {
   &__block-title {
     border-left: 5px solid $color-F3BC28;
     padding: 0 38px;
-    margin-bottom: 40px;
+    margin-bottom: 44px;
   }
 
   &__title {
@@ -655,7 +680,7 @@ img {
 
   &__table {
     width: 100%;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 400;
     color: $color-000000;
     border-collapse: collapse;
@@ -686,6 +711,9 @@ img {
 
   &__tr>td:first-child {
     text-align: start;
+    max-width: 230px;
+    font-size: 18px;
+    line-height: 28px;
     border-top: 1px solid $color-9A9A9A;
     border-bottom: 1px solid $color-9A9A9A;
     border-right: 30px solid $color-F3F3F3;
@@ -728,7 +756,12 @@ img {
   }
 
   &__td {
-    padding: 20px;
+    padding: 16px;
+  }
+  &__td-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__pic {
@@ -760,7 +793,7 @@ img {
     flex-direction: column;
     align-items: center;
     padding-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 104px;
   }
 
   &__wrap {
@@ -776,6 +809,7 @@ img {
 
   &__title {
     align-self: flex-start;
+    margin-bottom: -5px;
   }
 
   &__subtitle {
@@ -783,7 +817,7 @@ img {
     font-size: 56px;
     font-weight: 400;
     color: $color-FFFFFF;
-    margin-bottom: 35px;
+    margin-bottom: 48px;
   }
 
   &__pic {
@@ -868,6 +902,9 @@ img {
     padding: 22px 40px;
     margin-right: 15px;
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    &:hover {
+      color: $color-000000;
+    }
 
     &_link {
       min-width: min-content;
@@ -1251,13 +1288,14 @@ img {
     font-size: 56px;
     font-weight: 500;
     color: $color-FFFFFF;
-    margin-bottom: 48px;
+    margin-bottom: 44px;
   }
 
   &__list {
     @include listReset;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 12px;
   }
 
   &__item {
@@ -1340,6 +1378,7 @@ img {
 
     iframe {
       max-width: 100%;
+      height: 100%;
     }
   }
 
@@ -1390,7 +1429,7 @@ img {
     order: 1;
     display: flex;
     align-items: center;
-    max-width: 450px;
+    max-width: 424px;
     cursor: pointer;
     font-size: 32px;
     font-weight: 400;
@@ -1459,7 +1498,7 @@ img {
   &__subtitle {
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   &__list {
@@ -1469,11 +1508,13 @@ img {
     flex-direction: column;
     align-items: flex-start;
     padding-left: 20px;
+    margin-left: 16px;
   }
 
   &__descr {
     font-size: 24px;
     font-weight: 400;
+    margin-bottom: 9px;
 
     &::marker {
       font-size: 1em;
@@ -1541,6 +1582,7 @@ img {
   &__img {
     object-fit: contain;
     width: 100%;
+    height: inherit;
     min-width: 200px;
   }
 
@@ -1549,7 +1591,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     color: $color-F3BC28;
-    padding: 33px 20px;
+    padding: 25px 20px;
     text-align: center;
   }
 
@@ -1631,13 +1673,19 @@ img {
     flex-direction: column;
     align-items: center;
     padding-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 90px;
+  }
+  &__link {
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__title {
     text-align: center;
     color: $color-FFFFFF;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 
   &__block {
@@ -1650,7 +1698,7 @@ img {
     width: auto;
 
     &:first-child {
-      margin-right: 100px;
+      margin-right: 120px;
     }
   }
 }
@@ -1660,7 +1708,7 @@ img {
 
   &__container {
     padding-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 90px;
   }
 
   &__title {
@@ -1686,7 +1734,7 @@ img {
     object-fit: contain;
 
     &:not(:last-child) {
-      margin-right: 8px;
+      margin-right: 14px;
     }
 
     &_1 {
@@ -1711,7 +1759,7 @@ img {
   }
 
   &__subtitle {
-    font-size: 32px;
+    font-size: 33px;
     font-weight: 700;
     color: $color-FFFFFF;
   }
@@ -1722,7 +1770,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 110px;
     padding-bottom: 100px;
   }
 
@@ -1746,12 +1794,14 @@ img {
 
   &__img {
     max-width: min-content;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
     transform: scale(1);
+    filter: grayscale(100);
 
     &:hover,
     &:focus-visible {
       transform: scale(1.1);
+      filter: grayscale(0);
     }
   }
 
@@ -1817,7 +1867,7 @@ img {
 
   &__title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 36px;
   }
 
   &__block {
@@ -1837,7 +1887,7 @@ img {
       text-align: start;
       border-top: 1px solid $color-9A9A9A;
       border-bottom: 1px solid $color-9A9A9A;
-      padding: 12px 30px 12px 0;
+      padding: 10px 30px 10px 0;
     }
 
     &__ac {
@@ -1858,15 +1908,22 @@ img {
     .ac.is-active .ac-trigger {
       border-bottom: 1px solid transparent;
     }
-
+    .ac.is-active>.ac-header .ac-trigger::after {
+      content: "\2716";
+      width: 15px;
+      height: 15px;
+      font-size: 32px;
+      font-weight: 400;
+      top: 20px;
+  }
     .ac .ac-panel .ac-text {
       font-family: "Raleway", sans-serif;
       font-size: 24px;
       font-weight: 400;
-      line-height: 140%;
+      line-height: 150%;
       color: $color-FFFFFF;
-      padding: 26px 26px 26px 90px;
-    }
+      padding: 14px 0px 10px 116px;
+        }
 
     .ac .ac-trigger {
       font-family: "Raleway", sans-serif;
@@ -1883,7 +1940,7 @@ img {
     }
 
     .ac .ac-trigger::after {
-      font-size: 68px;
+      font-size: 60px;
       font-weight: 400;
       right: 22px;
     }
@@ -1913,7 +1970,7 @@ img {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 1700px;
-    padding: 0 100px;
+    padding: 0 120px;
   }
 
   &__block {
@@ -1922,11 +1979,11 @@ img {
   }
 
   &__block_1 {
-    padding: 130px 50px 100px 0;
+    padding: 140px 50px 100px 0;
   }
 
   &__block_2 {
-    padding: 130px 0 100px 50px;
+    padding: 130px 0 80px 64px;
 
     box-shadow: -5px 2px 4px 0px rgba(0, 0, 0, 0.25);
   }
@@ -1950,6 +2007,7 @@ img {
   &__descr {
     font-size: 36px;
     font-weight: 400;
+    line-height: 130%;
   }
 
   &__form {
@@ -1961,24 +2019,25 @@ img {
   &__subtitle {
     font-size: 36px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   &__input {
     width: 100%;
-    padding: 12px 16px;
+    padding: 10px 16px;
     background-color: $color-FFFFFF;
     color: $color-000000;
     border-radius: 50px;
     border: 1px solid transparent;
     font-size: 14px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 
     &:focus-visible {
       border: 1px solid $color-F3BC28;
     }
 
     &_text {
+      height: 84px;
       border-radius: 30px;
       resize: none;
     }
@@ -2016,7 +2075,7 @@ img {
     font-size: 14px;
     font-weight: 400;
     color: $color-FFFFFF;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 
     &_check {
       position: relative;
@@ -2024,6 +2083,7 @@ img {
       font-weight: 400;
       margin-bottom: 40px;
       padding-left: 37px;
+      margin-left: 16px;
 
       &:hover input~.callback__span {
         border-color: $color-F3BC28;
@@ -2041,13 +2101,14 @@ img {
 }
 
 .footer {
+  font-feature-settings: "pnum" on, "lnum" on;
   background-color: $color-56295A;
 
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 1700px;
-    padding: 115px 100px 40px 100px;
+    padding: 110px 116px 40px 116px;
     grid-gap: 20px;
   }
 
@@ -2122,7 +2183,7 @@ img {
   }
 
   .mb-18 {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   &__link {
@@ -2291,6 +2352,7 @@ img {
     font-size: 14px;
     font-weight: 400;
     color: #867388;
+    padding: 12px 0;
   }
 }
 
@@ -2407,14 +2469,14 @@ img {
 
 .select-selected {
   background-color: $color-F3F3F3;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+  // box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
 
 }
 
 .select-selected:after {
   position: absolute;
   content: "";
-  top: 20px;
+  top: 23px;
   right: 16px;
   width: 0;
   height: 0;
@@ -2431,7 +2493,7 @@ img {
 .select-selected {
   width: 100%;
   color: $color-000000;
-  padding: 6px 20px;
+  padding: 8px 20px;
   border: none;
   border-radius: 40px;
   cursor: pointer;

@@ -462,10 +462,12 @@
 
     .header {
         &__container {
-            padding-left: 40px;
-            padding-right: 40px;
+            padding-left: 24px;
+            padding-right: 24px;
         }
-
+        // &__phone {
+        //     padding-left: 20px;
+        // }
         &__phone,
         &__mail {
             display: flex;
@@ -478,6 +480,8 @@
             background-color: #665a87;
 
             svg {
+                position: absolute;
+                width: 100%;
                 margin: 0;
             }
         }
@@ -496,7 +500,7 @@
     .hero {
         &__title {
             font-size: 36px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             max-width: 440px;
         }
 
@@ -507,11 +511,12 @@
         }
 
         &__block {
-            padding-bottom: 45px;
+            min-width: 57%;
+            padding-bottom: 40px;
         }
 
         &__item {
-            padding: 11px 7px 11px 24px;
+            padding: 14px 7px 14px 24px;
             background-size: 10px;
             background-position: 9px center;
         }
@@ -525,7 +530,8 @@
         }
 
         &__btn {
-            margin-bottom: 20px;
+            padding: 24px 40px;
+            margin-bottom: 12px;
         }
 
         &__subtitle {
@@ -595,21 +601,29 @@
     }
 
     .cases {
+        &__title {
+            margin-bottom: 0;
+        }
         &__subtitle {
             font-size: 30px;
             margin-bottom: 24px;
         }
 
         &__item {
-            margin-bottom: 2px;
+            margin-bottom: 4px;
+            padding-bottom: 10px;
         }
 
         &__caption {
             font-size: 24px;
+            margin-bottom: 36px;
+        }
+        &__swiper {
+            margin-bottom: 32px;
         }
 
         .swiper-slide {
-            padding: 25px;
+            padding: 30px 16px;
         }
 
         &__btn {
@@ -621,12 +635,29 @@
             width: calc(100% + 28px);
             left: -16px;
         }
-
         &__pic {
-            min-width: 22px;
-            height: 22px;
+            min-width: 27px;
+            max-width: 27px;
+            height: 27px;
+            padding: 2px;
+            margin-right: 2px;
         }
 
+        &__cash {
+            .cases__pic {
+                min-width: 30px;
+                height: 30px;
+                padding: 2px;
+                margin-right: 6px;
+            }
+            .cases__item {
+                max-width: 180px;
+                height: 40px;
+            }
+            .cases__desc {
+                font-size: 8px;
+            }
+        }    
         &__list_2 {
             margin-bottom: 10px;
 
@@ -649,12 +680,6 @@
             font-size: 12px;
         }
 
-        &__cash {
-            .cases__desc {
-                font-size: 12px;
-            }
-        }
-
         &__value {
             font-size: 16px;
         }
@@ -668,11 +693,16 @@
         }
 
         &__chart {
-            min-height: 150px;
+            min-height: 114px;
             margin-bottom: 0;
         }
 
         .problem {
+            &__title {
+                min-width: 120px;
+                padding: 0 10px;
+                font-size: 12px;
+            }
             &__descr {
                 font-size: 12px;
             }
@@ -680,7 +710,7 @@
 
         .cases__td {
             font-size: 12px;
-            padding: 12px;
+            padding: 2px;
         }
 
         .cases__tr>.cases__td:nth-child(1) {
@@ -693,16 +723,31 @@
             padding-left: 30px;
             background-position: 20px center;
         }
+        .cases__link {
+            padding: 22px 40px;
+        }
 
         &__list_2 {
+            .cases__item {
+                padding: 4px;
+            }
 
             .cases__img-block {
                 display: none;
             }
         }
+        &__content.is-open {
+            grid-template-columns: 30% auto auto auto;
+        }
+        &__btn_link {
+            padding: 22px 40px;
+        }
     }
 
     .prices {
+        &__container {
+            padding-bottom: 62px;
+        }
         &__title {
             margin-bottom: 0;
         }
@@ -712,28 +757,80 @@
             font-size: 32px;
             font-weight: 400;
         }
-
+        &__td {
+            padding: 12px;
+        }
         .prices__table {
             width: 1200px;
         }
 
         &__block-title {
             padding: 0 10px;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
-
+        .prices__tr > td:first-child {
+            max-width: 170px;
+            font-size: 12px;
+        }
         // &__btn {
         //     padding: 18px 22px;
         // }
         .prices__tr:first-child>td:not(:first-child) {
             font-size: 12px;
         }
+        &__pic_logo {
+            margin-bottom: 6px;
+        }
+        &__block {
+            padding: 54px 20px 84px;
+        }    
     }
-
+    .reviews {
+        &__subtitle {
+            font-size: 30px;
+            font-weight: 400;
+            margin-bottom: 22px;
+        }
+        &__btns-block {
+            right: 0;
+        }
+        &__video {
+            height: 344px;
+            max-height: none;
+        }
+        &__descr {
+            max-width: 490px;
+            font-size: 16px;
+            margin-bottom: 26px;
+            span {
+                font-size: 16px;
+            }
+        }
+        &__swiper {
+            margin-bottom: 24px;
+        }
+        &__btn {
+            padding: 22px 40px;
+        }
+    }
+    .advantages {
+        &__title {
+            margin-bottom: 22px;
+        }
+        &__wrapper {
+            grid-template-rows: repeat(5, 106px);
+        }
+        &__content {
+            padding: 30px 24px;
+        }
+        &__list {
+            margin-left: 0;
+        }
+    }
     .questions {
         &__container {
             padding-top: 50px;
-            padding-bottom: 30px;
+            padding-bottom: 40px;
         }
 
         &__title {
@@ -744,6 +841,9 @@
             font-size: 18px;
             padding: 6px 26px 6px 65px;
         }
+        .accordion__btn {
+            padding: 12px 30px 10px 0;
+        }
     }
 
     .questions .accordion .ac .ac-trigger {
@@ -753,8 +853,15 @@
     .questions .accordion .ac .ac-trigger::after {
         font-size: 42px;
         font-weight: 500;
+        right: 0;
     }
-
+    
+    .questions .accordion .ac.is-active > .ac-header .ac-trigger::after {
+        font-size: 24px;
+    }
+    .questions .accordion .ac .ac-panel .ac-text {
+        line-height: 140%;
+    }
     .callback {
         &__title {
             font-size: 28px;
@@ -772,6 +879,7 @@
 
         &__label {
             font-size: 8px;
+            margin-bottom: 8px;
 
             &_check {
                 margin-bottom: 10px;
@@ -797,28 +905,33 @@
             margin-bottom: 4px;
 
             &_text {
+                height: 50px;
+                border-radius: 20px;
                 margin-bottom: 12px;
             }
+        }
+        &__btn {
+            padding: 22px 40px;
         }
     }
 
     .team {
         &__container {
-            padding-bottom: 20px;
+            padding-bottom: 50px;
         }
 
         &__link {
-            width: 60px;
-            height: 60px;
+            width: 36px;
+            height: 36px;
         }
 
         &__post-title {
             font-size: 14px;
-            min-height: 25px;
+            min-height: 16px;
         }
 
         &__post {
-            padding: 12px 14px;
+            padding: 10px 10px;
         }
 
         &__title {
@@ -833,17 +946,18 @@
         &__name {
             font-size: 14px;
             padding-left: 14px;
+            padding-bottom: 14px;
         }
 
         &__person {
-            height: 130px;
+            height: 140px;
         }
     }
 
     .footer {
         &__container {
-            grid-template-columns: 32% 30% 30%;
-            padding: 70px 40px;
+            grid-template-columns: 40% 30% 30%;
+            padding: 70px;
             padding-bottom: 50px;
         }
 
@@ -993,7 +1107,7 @@
 
             &:first-child {
                 margin: 0;
-                margin-bottom: 12px;
+                margin-bottom: 24px;
             }
         }
     }
@@ -1316,10 +1430,15 @@
         }
 
         &__phone {
+            width: 36px;
+            height: 36px;
             margin-right: 8px;
         }
 
         &__mail {
+            width: 36px;
+            height: 36px;
+
             margin-right: 8px;
         }
 
@@ -1379,6 +1498,9 @@
     }
 
     .hero {
+        &__title {
+            margin-bottom: 14px;
+        }
         &__picture {
             width: 250px;
             height: 180px;
@@ -1416,22 +1538,28 @@
             padding-top: 24px;
             padding-bottom: 35px;
         }
+        &__btn {
+            padding: 22px 40px;
+        }
     }
 
     .partners {
         &__title {
-            line-height: 26px;
-            margin-bottom: 10px;
+            line-height: 24px;
+            margin-bottom: 20px;
         }
 
         &__container {
-            padding-top: 30px;
+            padding-top: 34px;
             padding-bottom: 30px;
         }
 
         &__img {
             height: 130px;
             width: auto;
+            &_last {
+                height: 110px;
+            }
         }
 
         &__link {
@@ -1443,11 +1571,12 @@
 
     .offers {
         &__container {
-            padding-top: 30px;
+            padding-top: 34px;
             padding-bottom: 0;
         }
 
         &__item {
+            padding: 25px;
             background-size: cover;
             background-position: center top -40px;
         }
@@ -1464,7 +1593,7 @@
     .cases {
         &__container {
             padding-top: 30px;
-            padding-bottom: 40px;
+            padding-bottom: 32px;
         }
 
         &__img {
@@ -1473,6 +1602,9 @@
 
         &__list_1 {
             grid-column: 1 / span 4;
+            .cases__item {
+                padding-bottom: 0;
+            }
         }
 
         &__list_2 {
@@ -1497,6 +1629,7 @@
         }
 
         &__tabs {
+            margin-bottom: 14px;
             .cases__btn {
                 padding: 6px 8px;
             }
@@ -1507,7 +1640,10 @@
             margin-bottom: 20px;
             line-height: 20px;
         }
-
+        &__subblock {
+            flex-direction: row;
+            align-items: center;
+        }
         &__caption {
             text-align: center;
             font-size: 16px;
@@ -1519,7 +1655,7 @@
         }
 
         &__tabs {
-            margin-bottom: 24px;
+            margin-bottom: 14px;
         }
 
         &__btn {
@@ -1536,6 +1672,10 @@
         &__cash {
             .cases__item {
                 padding: 2px;
+                padding-left: 20px;
+                &:first-child {
+                    margin-bottom: 20px;
+                }
             }
         }
 
@@ -1547,9 +1687,6 @@
             // grid-column: 1/span 3;
             margin-bottom: 5px;
 
-            .cases__item {
-                padding-bottom: 6px;
-            }
         }
 
         &__list_3 {
@@ -1564,15 +1701,19 @@
         }
 
         &__link {
-            margin-top: 6px;
+            margin-top: 18px;
+            padding: 20px 30px;
         }
-
+        .cases__link {
+            padding: 20px 30px;
+        }
     }
 
     .partners {
         &__title {
             span {
-                font-size: 22px;
+                font-size: 20px;
+                line-height: 20px;
             }
         }
     }
@@ -1580,28 +1721,44 @@
     .prices {
         &__container {
             padding-top: 30px;
+            padding-bottom: 26px;
         }
 
-        &__table {
-            width: 560px;
+        .prices__table {
+            width: 680px;
         }
 
         &__subtitle {
             font-size: 28px;
+            line-height: 30px;
         }
 
         .prices__tr:first-child>td:not(:first-child) {
             font-size: 10px;
         }
+        .prices__tr > td:first-child {
+            font-size: 6px;
+            max-width: none;
+            min-width: 82px;
+        }
 
         &__block {
             padding: 22px 8px;
+        }
+        &__block-title {
+            margin-bottom: 15px;
+        }
+        .simplebar-content {
+            padding: 30px 8px;
         }
 
         &__btn {
             padding: 14px;
         }
-
+        &__pic {
+            width: 6px;
+            height: 6px;
+        }
         &__pic_logo {
             width: 60px;
             height: 14px;
@@ -1614,11 +1771,14 @@
 
         td {
             font-size: 8px;
-            padding: 6px 3px;
+            padding: 0;
         }
     }
 
     .reviews {
+        &__title {
+            margin-bottom: 6px;
+        }
         &__container {
             padding-top: 30px;
             padding-bottom: 30px;
@@ -1629,31 +1789,42 @@
         }
 
         &__subtitle {
-            margin-bottom: 84px;
+            font-size: 24px;
+            margin-bottom: 80px;
         }
 
         &__comment {
             padding: 21px 27px;
             margin-bottom: 10px;
         }
+        &__descr {
+            margin-bottom: 22px;
+        }
 
         &__video {
+            height: 300px;
             min-height: 300px;
         }
 
         &__swiper {
             margin-bottom: 20px;
         }
+        &__btn {
+            padding: 20px 30px;
+        }
     }
 
     .advantages {
+        &__container {
+            padding-bottom: 20px;
+        }
         &__title {
             padding: 0 5px;
             margin-bottom: 20px;
         }
 
         &__label {
-            padding: 14px;
+            padding: 20px 14px;
         }
 
         &__content {
@@ -1662,16 +1833,24 @@
 
         &__subtitle {
             font-size: 18px;
+            margin-bottom: 10px;
         }
 
         &__descr {
             font-size: 14px;
+            :last-child {
+                margin-bottom: 0;
+            }
+        }
+        &__img {
+            height: 36px;
         }
     }
 
     .team {
         &__container {
             padding-top: 40px;
+            padding-bottom: 34px;
         }
 
         &__title {
@@ -1688,7 +1867,7 @@
         }
 
         &__post {
-            padding: 10px 14px;
+            padding: 14px 14px;
 
             &-title {
                 font-size: 18px;
@@ -1707,12 +1886,15 @@
 
     .clients {
         &__container {
-            padding-top: 50px;
-            padding-bottom: 30px;
+            padding-top: 30px;
+            padding-bottom: 52px;
         }
 
         &__sw .swiper-slide .clients__img {
             max-height: 70px;
+        }
+        &__img:hover {
+            transform: scale(1)
         }
     }
 
@@ -1736,6 +1918,9 @@
             right: 0px;
             font-weight: 400;
         }
+        .accordion .ac.is-active > .ac-header .ac-trigger::after {
+            font-size: 16px;
+        }
     }
 
     .callback {
@@ -1749,6 +1934,12 @@
 
         &__title {
             margin-bottom: 0;
+            span {
+                margin-bottom: 8px;
+            }
+        }
+        &__btn {
+            padding: 20px 30px;
         }
 
         &__descr {
@@ -1756,7 +1947,17 @@
         }
 
         &__label {
-            font-size: 10px;
+            font-size: 8px;
+            margin-bottom: 4px;
+            &_check {
+                margin-left: 0;
+                padding-left: 20px;
+                font-size: 10px;
+                margin-bottom: 18px;
+            }
+        }
+        &__subtitle {
+            margin-bottom: 10px;
         }
 
         &__input {
@@ -1777,6 +1978,10 @@
     }
 
     .footer {
+        &__container {
+            grid-gap: 0;
+            padding-top: 34px;
+        }
         &__list-pay {
             grid-template-columns: repeat(2, 80px);
         }

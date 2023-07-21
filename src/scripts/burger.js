@@ -128,6 +128,8 @@ function openLastMenu(link) {
 }
 function closeAllSubMenu() {
   const btnClose = document.querySelectorAll(".burger__btn-close");
+  const burgerList = document.querySelector(".burger__list");
+
   btnClose.forEach((btn) => {
     btn.addEventListener("click", () => {
       removeVisible();
