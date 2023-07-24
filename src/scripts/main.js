@@ -138,3 +138,17 @@ tabsMobile.forEach((tab) => {
     currentTabData.classList.add("is-open");
   });
 });
+
+//advantages tabs
+const inputsLabel = document.querySelectorAll(".advantages__label");
+inputsLabel.forEach((input) => {
+  input.addEventListener("click", (e) => {
+    e.preventDefault();
+    inputsLabel.forEach((label) => {
+      label.classList.remove("advantages__active");
+      label.nextSibling.classList.remove("advantages__open");
+    });
+    e.target.classList.add("advantages__active");
+    e.target.nextSibling.classList.add("advantages__open");
+  });
+});

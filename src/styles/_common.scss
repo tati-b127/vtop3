@@ -533,7 +533,7 @@ img {
 
   &__swiper {
     margin-top: 90px;
-    width: 100%;
+    width: 40%;
     background-image: url('./images/hero-bg.webp');
     background-repeat: no-repeat;
     background-position: right 0 bottom 130px;
@@ -582,7 +582,7 @@ img {
   }
 
   &__block {
-    min-width: 60%;
+    max-width: 60%;
     padding: 90px 0 70px;
   }
 
@@ -1415,11 +1415,15 @@ img {
     display: grid;
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(3, 145px);
+    position: relative;
   }
 
   &__input {
     position: absolute;
+    left: 0;
+    top: 0;
     opacity: 0;
+    z-index: -9999;
   }
 
   &__label {
@@ -1432,6 +1436,7 @@ img {
     max-width: 424px;
     cursor: pointer;
     font-size: 32px;
+    cursor: pointer;
     font-weight: 400;
     background: $color-583E7A;
     color: $color-FFFFFF;
@@ -1444,7 +1449,6 @@ img {
       color: $color-F3BC28;
     }
   }
-
   &__label_one {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
@@ -1522,11 +1526,13 @@ img {
     }
   }
 
-  &__input:checked+.advantages__label {
+  &__active {
     background: $color-340738;
   }
-
-  &__input:checked+.advantages__label+.advantages__content {
+  &__open {
+    display: block;
+  }
+  &__.advantages__label.advantages__active+.advantages__content {
     display: block;
   }
 }
@@ -2119,13 +2125,21 @@ img {
     grid-template-columns: 40% 30% 30%;
     max-width: 1700px;
     padding: 110px 116px 40px 116px;
-    grid-gap: 20px;
+    // grid-gap: 20px;
   }
 
   &__block {
     display: flex;
     flex-direction: column;
+    max-width: max-content;
   }
+  &__block {
+    margin-right: 20px;
+    &:nth-child(3) {
+      margin-right: 0;
+    }
+  }
+  
 
   &__title {
     font-size: 18px;
@@ -2374,7 +2388,8 @@ img {
   &__about {
     text-align: center;
     grid-column: 1 / span3;
-    width: 100%;
+    width: max-content;
+    justify-self: center;
     font-size: 14px;
     font-weight: 400;
     color: #867388;
@@ -2467,6 +2482,10 @@ img {
 
     .callback__label {
       font-size: 14px;
+    }
+    .callback__span::after {
+      left: 6px;
+      top: 3px;
     }
   }
 }

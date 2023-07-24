@@ -498,13 +498,14 @@
         }
 
         &__swiper {
+            width: 40%;
             margin-top: 70px;
             background-size: 240px;
             background-position: right 0 bottom 70px;
         }
 
         &__block {
-            min-width: 57%;
+            max-width: 60%;
             padding-bottom: 40px;
         }
 
@@ -915,7 +916,19 @@
             padding: 22px 40px;
         }
     }
-
+    .callback__modal {
+        .callback__block_2 {
+            .callback__label {
+                font-size: 10px;
+            }
+            .callback__span::after {
+                width: 2px;
+                height: 6px;
+                left: 3px;
+                top: 1px;
+            }
+        }
+    }
     .team {
         &__container {
             padding-bottom: 50px;
@@ -958,8 +971,7 @@
     .footer {
         &__container {
             grid-template-columns: 40% 30% 30%;
-            padding: 70px;
-            padding-bottom: 50px;
+            padding: 70px 60px 50px 70px;
         }
 
         &__list-pay {
@@ -968,6 +980,12 @@
 
         &__title {
             font-size: 16px;
+        }
+        &__block {
+            margin-right: 17px;
+            &:nth-child(3) {
+                margin-right: 0;
+            }
         }
     }
 }
@@ -1052,6 +1070,7 @@
         }
 
         &__swiper {
+            width: 100%;
             margin-top: 20px;
             background-position: center;
         }
@@ -1072,6 +1091,7 @@
         }
 
         &__block {
+            max-width: 100%;
             padding-left: 12px;
             padding-right: 12px;
             background-color: #28062c;
@@ -1330,6 +1350,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-self: center;
+            margin-right: 0;
             grid-column: 1 / span 1;
         }
 
