@@ -353,9 +353,10 @@ img {
     left: 30px;
     right: 0;
     background: $color-4D3F75;
-    font-weight: "Raleway", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: initial;
     z-index: 600;
   }
 
@@ -369,9 +370,9 @@ img {
     left: 30px;
     right: 0;
     background: $color-4D3F75;
-    font-weight: "Raleway", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
     z-index: 600;
   }
 
@@ -575,8 +576,7 @@ img {
       background-image: url("./images/hero-desktop.webp");
     }
     &_2 {
-      background-image: url("./images/hero-desktop.webp");
-      filter: grayscale(100);
+      background-image: url("./images/hero-2-desktop.webp");
     }
     // margin-top: 100px;
   }
@@ -939,7 +939,7 @@ img {
 
   &__link {
     @include linkReset;
-    // margin-left: 50px;
+    margin-left: 4%;
   }
 
   &__img {
@@ -1231,7 +1231,7 @@ img {
     font-size: 14px;
     font-weight: 700;
     line-height: 22px;
-    padding: 18px 22px;
+    padding: 17px 22px;
     border: 0.5px solid $color-9A9A9A;
     text-align: center;
 
@@ -1581,6 +1581,7 @@ img {
 
   &__img {
     object-fit: contain;
+    object-position: bottom;
     width: 100%;
     height: inherit;
     min-width: 200px;
@@ -1796,6 +1797,7 @@ img {
     max-width: min-content;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
     transform: scale(1);
+    padding: 4px 0;
     filter: grayscale(100);
 
     &:hover,
@@ -1889,7 +1891,11 @@ img {
       border-bottom: 1px solid $color-9A9A9A;
       padding: 10px 30px 10px 0;
     }
-
+    &__list {
+      @include listReset;
+      display: flex;
+      flex-direction: column;
+    }
     &__ac {
       margin: 0;
       border: none;
@@ -1922,7 +1928,7 @@ img {
       font-weight: 400;
       line-height: 150%;
       color: $color-FFFFFF;
-      padding: 14px 0px 10px 116px;
+      padding: 14px 0px 0px 96px;
         }
 
     .ac .ac-trigger {
@@ -1958,7 +1964,8 @@ img {
       font-family: "Raleway", sans-serif;
       font-size: 24px;
       font-weight: 400;
-      line-height: 140%;
+      line-height: 130%;
+      margin-bottom: 12px;
     }
   }
 }
@@ -2001,6 +2008,9 @@ img {
       font-size: 100px;
       font-weight: 700;
       color: $color-F3BC28;
+    }
+    .callback__title-lg {
+      font-size: 50px;
     }
   }
 
@@ -2106,7 +2116,7 @@ img {
 
   &__container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 40% 30% 30%;
     max-width: 1700px;
     padding: 110px 116px 40px 116px;
     grid-gap: 20px;
@@ -2189,6 +2199,7 @@ img {
   &__link {
     @include linkReset;
     display: inline;
+    width: max-content;
 
     svg {
       transition: filter 0.2s ease-in-out;
@@ -2322,27 +2333,42 @@ img {
       }
     }
   }
-
-  .footer__phone_hover::after {
+  .footer__phone-hover,
+  .footer__mail-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+  .footer__phone-hover::after {
     content: "показать номер";
     position: absolute;
-    width: 100%;
+    width: 101%;
     height: 100%;
     left: 0;
     right: 0;
     background: $color-56295A;
     z-index: 100;
+    font-weight: 400;
+    background-image: url('./images/svg/arrow-menu.svg');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
   }
 
-  .footer__mail_hover::after {
+  .footer__mail-hover::after {
     content: "показать email";
     position: absolute;
-    width: 100%;
+    width: 101%;
     height: 100%;
     left: 0;
     right: 0;
     background: $color-56295A;
+    font-weight: 400;
     z-index: 100;
+    background-image: url('./images/svg/arrow-menu.svg');
+    background-image: url('./images/svg/arrow-menu.svg');
+    background-repeat: no-repeat;
+    background-position: right 50px center;
   }
 
   &__about {
@@ -2439,7 +2465,7 @@ img {
     font-size: 20px;
     padding: 50px;
 
-    .callbacl__label {
+    .callback__label {
       font-size: 14px;
     }
   }

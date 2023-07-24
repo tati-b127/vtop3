@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       !burgerList.contains(event.target) &&
       !event.target.classList.contains("burger__btn")
     ) {
-      console.log(event.target);
       removeVisible();
       burgerList.classList.remove("visible");
       burgerList.classList.add("hidden");
@@ -40,7 +39,6 @@ function flipBurgerMenu() {
   }
 }
 function innerWindow() {
-  console.log(window.innerWidth);
   const burgerItemLink = document.querySelectorAll(".burger__link");
   const burgerLastTrigger = document.querySelectorAll(
     ".burger__link-last-trigger"
@@ -75,7 +73,6 @@ function openSubMenu(link) {
     list.classList.add("visible");
   }
   const btnBack = list.querySelector(".burger__btn-back");
-  console.log(btnBack);
   btnBack.addEventListener("click", () => {
     list.style.display = "none";
     items.forEach((item) => {
@@ -94,7 +91,6 @@ function openLastMenu(link) {
 
   const lastList = link.nextSibling;
 
-  console.log(lastList);
   if (lastList !== null) {
     lastList.style.display = "block";
     items.forEach((item) => {
@@ -109,9 +105,7 @@ function openLastMenu(link) {
     lastList.classList.add("visible");
   }
   const btnBack = lastList.querySelector(".burger__btn-back");
-  console.log(btnBack);
   btnBack.addEventListener("click", () => {
-    console.log(items);
     lastList.style.display = "none";
     lastList.classList.remove("visible");
     items.forEach((item) => {
@@ -147,7 +141,6 @@ function removeVisible() {
     ".header__dropdown-menu.visible"
   );
   const lastList = document.querySelectorAll(".burger__list-last.visible");
-  console.log(dropdownList);
   dropdownList.forEach((dropdown) => {
     dropdown.classList.remove("visible");
     dropdown.style.display = "none";

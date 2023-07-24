@@ -4,12 +4,16 @@ const tabTriggerBtns = document.querySelectorAll(".cases__btn");
 const casesTabOpen = document.querySelector(".cases__content");
 casesTabOpen.classList.add("is-open");
 tabTriggerBtns.forEach(function (tabTriggerBtn, index) {
-  tabTriggerBtn.addEventListener("click", function () {
+  tabTriggerBtn.addEventListener("click", function (e) {
+    e.preventDefault();
     const currentTabData = document.querySelector(
       '.cases__content[data-tab-content="' + this.dataset.tabTrigger + '"]'
     );
-    document.querySelector(".is-open").classList.remove("is-open");
-    document.querySelector(".is-active").classList.remove("is-active");
+    const currentSlide = this.parentNode.parentNode;
+    const isOpen = currentSlide.querySelector(".is-open");
+    isOpen.classList.remove("is-open");
+    const isActive = currentSlide.querySelector(".is-active");
+    isActive.classList.remove("is-active");
     currentTabData.classList.add("is-open");
     this.classList.add("is-active");
   });
@@ -20,19 +24,15 @@ tabTriggerBtns.forEach(function (tabTriggerBtn, index) {
 new Accordion(".accordion");
 
 // show contacts
-const contactPhone = document.querySelector(".footer__phone");
-const contactMail = document.querySelector(".footer__mail");
+const contactPhone = document.querySelector(".footer__phone-hover");
+const contactMail = document.querySelector(".footer__mail-hover");
 contactPhone.addEventListener("click", (e) => {
-  if (contactPhone.classList.contains("footer__phone_hover")) {
-    e.preventDefault();
-    contactPhone.classList.remove("footer__phone_hover");
-  }
+  e.preventDefault();
+  contactPhone.classList.add("none");
 });
 contactMail.addEventListener("click", (e) => {
-  if (contactMail.classList.contains("footer__mail_hover")) {
-    e.preventDefault();
-    contactMail.classList.remove("footer__mail_hover");
-  }
+  e.preventDefault();
+  contactMail.classList.add("none");
 });
 const contactHeaderPhone = document.querySelector(".header__phone-hover");
 const contactHeaderMail = document.querySelector(".header__mail-hover");
@@ -55,15 +55,17 @@ for (i = 0; i < l; i++) {
   a = document.createElement("DIV");
   a.setAttribute("class", "select-selected");
   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  const opt = selElmnt.querySelectorAll("option");
   x[i].appendChild(a);
   b = document.createElement("DIV");
   b.setAttribute("class", "select-items select-hide");
   for (j = 1; j < ll; j++) {
     c = document.createElement("DIV");
     c.classList.add("select-div");
-    c.dataset.tabTriggerMobile = j;
+    c.dataset.tabTriggerMobile = opt[j].value;
     c.innerHTML = selElmnt.options[j].innerHTML;
     c.addEventListener("click", function (e) {
+      e.preventDefault();
       var y, i, k, s, h, sl, yl;
       s = this.parentNode.parentNode.getElementsByTagName("select")[0];
       sl = s.length;
@@ -119,15 +121,20 @@ function closeAllSelect(elmnt) {
 }
 document.addEventListener("click", closeAllSelect);
 
-const tabsMobile = document.querySelectorAll("[data-tab-trigger-mobile]");
+const tabsMobile = document.querySelectorAll(
+  ".select-div[data-tab-trigger-mobile]"
+);
 tabsMobile.forEach((tab) => {
-  tab.addEventListener("click", function () {
+  tab.addEventListener("click", function (e) {
+    e.preventDefault();
+    const currentSLideMobile = this.parentNode.parentNode.parentNode;
     const currentTabData = document.querySelector(
       '.cases__content[data-tab-content="' +
         this.dataset.tabTriggerMobile +
         '"]'
     );
-    document.querySelector(".is-open").classList.remove("is-open");
+    const currentContent = currentSLideMobile.querySelector(".is-open");
+    currentContent.classList.remove("is-open");
     currentTabData.classList.add("is-open");
   });
 });

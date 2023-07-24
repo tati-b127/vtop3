@@ -46,10 +46,6 @@ class ItcModal {
     }
     this.#elem.classList.add("itc-modal-show");
     this.#elem.dispatchEvent(this.#eventShowModal);
-    // const scrollY = document.documentElement.scrollTop;
-    // console.log(scrollY);
-    // document.body.style.position = "fixed";
-    // document.body.style.top = `-${window.scrollY}px`;
   }
 
   hide() {
