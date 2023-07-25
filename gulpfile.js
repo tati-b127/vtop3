@@ -79,19 +79,17 @@ const svgSprites = () => {
 };
 
 const images = () => {
-  return (
-    src([
-      "src/img/**/*.jpg",
-      "src/img/**/*.png",
-      // 'src/img/**/*.jpeg',
-      "src/img/**/*.svg",
-      // 'src/img/**/*.webp',
-      "src/img/**/*.ico",
-    ])
-      // .pipe(image())
-      .pipe(webp())
-      .pipe(dest("dist/images/"))
-  );
+  return src([
+    "src/img/**/*.jpg",
+    "src/img/**/*.png",
+    // 'src/img/**/*.jpeg',
+    "src/img/**/*.svg",
+    // 'src/img/**/*.webp',
+    "src/img/**/*.ico",
+  ])
+    .pipe(image())
+    .pipe(webp())
+    .pipe(dest("dist/images/"));
 };
 
 const scripts = () => {
