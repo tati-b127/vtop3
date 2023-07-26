@@ -5,26 +5,27 @@
     }
 
     .header {
-        &__container {
-            max-height: 80px;
-        }
 
-        &__top {
-            height: 80px;
-            background-image: none;
+        &__block-callback {
+            padding: 22px 0;
         }
 
         &__logo {
             margin-left: 20px;
             max-height: 60px;
         }
-
+        
         &__bottom {
-            display: none;
-        }
+            .header__link_arrow {
+                max-width: min-content;
 
-        .burger {
-            display: block;
+            }
+            .header__dropdown-menu {
+                top: 50px;
+            }
+            .header__dropdown-menu-include-last {
+                top: 0;
+            }
         }
     }
 
@@ -279,6 +280,48 @@
     .header__mail {
         font-size: 16px;
     }
+    .header {
+        &__container {
+            max-height: 80px;
+        }
+
+        &__top {
+            height: 80px;
+            background-image: none;
+        }
+
+        &__logo {
+            margin-left: 20px;
+            max-height: 60px;
+        }
+        
+        &__bottom {
+            display: none;
+            // .header__link_arrow {
+            //     max-width: min-content;
+
+            // }
+            // .header__dropdown-menu {
+            //     top: 50px;
+            // }
+            // .header__dropdown-menu-include-last {
+            //     top: 0;
+            // }
+        }
+
+        .burger {
+            display: block;
+            .burger__list-last {
+                left: calc(100% - 6px);
+            }
+            // .burger__item {
+                .header__dropdown-menu {
+                    left: 99%;
+                // }
+            }
+        }
+    }
+
     .hero {
         &__swiper {
             background-size: 340px;
@@ -1008,6 +1051,18 @@
             &__title-menu {
                 display: flex;
             }
+            .bureger__btn-back {
+                .header__link-img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+            .bureger__btn-close {
+                .header__link-img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
 
             .header__dropdown-menu {
                 position: fixed;
@@ -1016,6 +1071,8 @@
                 top: 60px;
                 z-index: 200;
                 max-width: 80%;
+                background-image: none;
+                padding: 20px 10px;
 
             }
 
@@ -1031,9 +1088,10 @@
             .burger__list-last {
                 position: fixed;
                 left: 50px;
-                padding: 20px;
+                padding: 20px 10px;
                 top: 60px;
                 z-index: 500;
+                background-image: none;
                 max-width: calc(100% - 70px);
 
             }

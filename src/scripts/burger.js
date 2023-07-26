@@ -152,4 +152,5 @@ function removeVisible() {
   flipElements.forEach((e) => {
     e.classList.remove("flip");
   });
+  document.body.style.overflow = "scroll";
 }

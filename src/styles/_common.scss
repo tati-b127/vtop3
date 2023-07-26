@@ -244,9 +244,9 @@ img {
     width: 30px;
     height: 30px;
     margin-right: 10px;
-
-    svg {
-      width: 100%;
+    .header__link-img {
+      width: 30px;
+      height: 30px;
     }
 
     &:hover {
@@ -259,11 +259,10 @@ img {
     width: 30px;
     height: 30px;
     margin-right: 14px;
-
-    svg {
-      width: 100%;
+    .header__link-img {
+      width: 30px;
+      height: 30px;
     }
-
     &:hover {
       filter: brightness(0.8);
     }
