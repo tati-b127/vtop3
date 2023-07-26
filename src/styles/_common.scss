@@ -2438,6 +2438,8 @@ img {
     pointer-events: none;
     color: transparent;
     border: transparent;
+    -webkit-text-stroke: none;
+
 
     &::after {
       display: none;
@@ -2457,6 +2459,8 @@ img {
     color: transparent;
     text-shadow: none;
     user-select: none;
+    -webkit-text-stroke: none;
+
 
     &:hover {
       pointer-events: none;
@@ -2464,6 +2468,7 @@ img {
       text-shadow: none;
       user-select: none;
       border-color: transparent;
+      -webkit-text-stroke: none;
     }
 
     &::after {
