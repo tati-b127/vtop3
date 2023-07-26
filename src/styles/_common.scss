@@ -2449,6 +2449,7 @@ img {
   font-size: 0;
   pointer-events: none;
   user-select: none;
+  -webkit-text-stroke: none;
 
   &>a {
     // display: none;
