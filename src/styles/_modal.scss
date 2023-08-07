@@ -18,9 +18,8 @@
     width: auto;
     margin: 12px;
     top: 10%;
-    background-color: #fff;
+    background-color: #583e7a;
     background-clip: padding-box;
-    border: 1px solid rgb(0 0 0 / 20%);
     border-radius: 0.3rem;
     box-shadow: 0 0 7px 0 rgb(0 0 0 / 30%);
     transition: opacity 0.3s ease-in;
@@ -30,8 +29,13 @@
   @media (min-width: 320px) {
     .itc-modal-content {
       max-width: 500px;
-      margin: auto auto;
+      margin: 12px;
       border-radius: 20px;
+    }
+  }
+  @media (min-width: 520px) {
+    .itc-modal-content {
+      margin: auto;
     }
   }
   
@@ -91,7 +95,6 @@
     justify-content: flex-end;
     align-items: center;
     padding: 1rem;
-    border-top: 1px solid #e9ecef;
     border-bottom-right-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
   }

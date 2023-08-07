@@ -1,96 +1,51 @@
-class ItcModal {
-  #elem;
-  #template =
-    '<div class="itc-modal-backdrop"><div class="itc-modal-content"><div class="itc-modal-header"><span class="itc-modal-btn-close" title="Закрыть">×</span></div><div class="itc-modal-body">{{content}}</div>{{footer}}</div></div>';
-  #templateFooter = '<div class="itc-modal-footer">{{buttons}}</div>';
-  #templateBtn =
-    '<button type="button" class="{{class}}" data-action={{action}}>{{text}}</button>';
-  #eventShowModal = new Event("show.itc.modal", { bubbles: true });
-  #eventHideModal = new Event("hide.itc.modal", { bubbles: true });
-  #disposed = false;
-
-  constructor(options = []) {
-    this.#elem = document.createElement("div");
-    this.#elem.classList.add("itc-modal");
-    let html = this.#template.replace(
-      "{{title}}",
-      options.title || "Новое окно"
-    );
-    html = html.replace("{{content}}", options.content || "");
-    const buttons = (options.footerButtons || []).map((item) => {
-      let btn = this.#templateBtn.replace("{{class}}", item.class);
-      btn = btn.replace("{{action}}", item.action);
-      return btn.replace("{{text}}", item.text);
-    });
-    const footer = buttons.length
-      ? this.#templateFooter.replace("{{buttons}}", buttons.join(""))
-      : "";
-    html = html.replace("{{footer}}", footer);
-    this.#elem.innerHTML = html;
-    document.body.append(this.#elem);
-    this.#elem.addEventListener("click", this.#handlerCloseModal.bind(this));
-  }
-
-  #handlerCloseModal(e) {
-    if (
-      e.target.closest(".itc-modal-btn-close") ||
-      e.target.classList.contains("itc-modal-backdrop")
-    ) {
-      this.hide();
-    }
-  }
-
-  show() {
-    if (this.#disposed) {
-      return;
-    }
-    this.#elem.classList.add("itc-modal-show");
-    this.#elem.dispatchEvent(this.#eventShowModal);
-  }
-
-  hide() {
-    this.#elem.classList.remove("itc-modal-show");
-    this.#elem.dispatchEvent(this.#eventHideModal);
-    document.body.style.position = "";
-    document.body.style.top = "";
-  }
-
-  dispose() {
-    this.#elem.remove(this.#elem);
-    this.#elem.removeEventListener("click", this.#handlerCloseModal);
-    this.#disposed = true;
-  }
-
-  setBody(html) {
-    this.#elem.querySelector(".itc-modal-body").innerHTML = html;
-  }
-
-  setTitle(text) {
-    this.#elem.querySelector(".itc-modal-title").innerHTML = text;
-  }
-}
-
-const modal = new ItcModal({
-  content:
-    '<div class="callback callback__modal"><div class="callback__block callback__block_2"><h3 class="callback__subtitle">Будем рады помочь</h3><form action="" class="callback__form"><label class="callback__label" for="name">Ваше имя</label><input class="callback__input" type="text" name="name" id="name-modal"><label class="callback__label" for="phone">Телефон</label><input class="callback__input" type="tel" name="phone" id="phone-modal"><label class="callback__label" for="message">Комментарий</label><textarea class="callback__input callback__input_text" name="message" id="message-modal" rows="3"></textarea><label class="callback__label callback__label_check" for="agree"><input class="callback__checkbox" type="checkbox" name="agree" id="agree-modal"><span class="callback__span"></span>Нажимая кнопку отправить заявку, даю согласие на обработку персональных данных*</label><button class="callback__btn btn btn-ok">Отправить заявку</button></form></div></div>',
-});
-const modalSuccess = new ItcModal({
-  content:
-    '<div class="callback callback__modal"><div class="callback__block callback__block_2"><h3 class="callback__subtitle">Спасибо!</h3><div class="callback__label">Мы скоро с Вами свяжемся!</div></div></div>',
-});
-
 const btnShowModal = document.querySelectorAll(".btn-show-modal");
 const btnOk = document.querySelectorAll(".btn-ok");
+const btnCls = document.querySelectorAll(".itc-modal-btn-close");
+const modal = document.getElementById("modal");
+const modalSuccess = document.getElementById("modal-success");
+const backdrop = document.querySelectorAll(".itc-modal-backdrop");
+
+function show(el) {
+  el.classList.add("itc-modal-show");
+}
+
+function hide(el) {
+  el.classList.remove("itc-modal-show");
+  const modal = document.getElementById("modal");
+  const inputs = modal.querySelectorAll(".callback__input");
+  inputs.forEach((input) => {
+    input.value = "";
+  });
+  document.body.style.position = "";
+  document.body.style.top = "";
+}
+window.onclick = function (event) {
+  event.preventDefault();
+  backdrop.forEach((el) => {
+    if (event.target == el) {
+      hide(modal);
+      hide(modalSuccess);
+    }
+  });
+};
 btnShowModal.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    modal.show();
+    show(modal);
   });
 });
 btnOk.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    modal.hide();
-    modalSuccess.show();
+    //TODO
+    hide(modal);
+    show(modalSuccess);
+  });
+});
+btnCls.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    hide(modal);
+    hide(modalSuccess);
   });
 });
